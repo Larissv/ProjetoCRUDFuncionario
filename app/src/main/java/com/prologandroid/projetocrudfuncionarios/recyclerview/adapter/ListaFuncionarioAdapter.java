@@ -31,14 +31,14 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
     }
 
     @Override
-    public FuncionarioViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ListaFuncionarioAdapter.FuncionarioViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View viewCriada = LayoutInflater.from(context)
                 .inflate(R.layout.item_funcionario, parent, false);
         return new FuncionarioViewHolder(viewCriada);
     }
 
     @Override
-    public void onBindViewHolder(FuncionarioViewHolder holder, int position) {
+    public void onBindViewHolder(ListaFuncionarioAdapter.FuncionarioViewHolder holder, int position) {
         Funcionario funcionario = funcionarios.get(position);
         holder.vincula(funcionario);
     }
