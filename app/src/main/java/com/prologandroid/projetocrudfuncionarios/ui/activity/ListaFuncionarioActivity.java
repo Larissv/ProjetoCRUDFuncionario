@@ -10,12 +10,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -142,25 +139,9 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         listaFuncionarioAdapter.adiciona(funcionario);
     }
 
-    public void remove(int funcionario) {
-        new FuncionarioDAO().removeFuncionario(funcionario);
-        listaFuncionarioAdapter.remove(funcionario);
-    }
-
-//    public void confirmaRemocao(final MenuItem item) {
-//        new AlertDialog
-//                .Builder(context)
-//                .setTitle("Removendo funcionário")
-//                .setMessage("Deseja remover o funcionário permanentemente?")
-//                .setPositiveButton("Sim", (dialogInterface, i) -> {
-//                    AdapterView.AdapterContextMenuInfo menuInfo =
-//                            (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-//                    ListaFuncionarioAdapter adapter = null;
-//                    Funcionario funcionarioEscolhido = adapter.getItem(menuInfo.position);
-//                    remove(funcionarioEscolhido);
-//                })
-//                .setNegativeButton("Não", null)
-//                .show();
+//    public void remove(Funcionario funcionario) {
+//        listaFuncionarioAdapter.remove(funcionario);
+//        listaFuncionarioAdapter.notifyDataSetChanged();
 //    }
 
     private boolean validaResultadoAdicionaFuncionario(int requestCode, Intent data) {

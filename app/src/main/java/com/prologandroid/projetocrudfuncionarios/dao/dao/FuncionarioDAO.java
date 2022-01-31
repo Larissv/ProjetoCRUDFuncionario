@@ -4,6 +4,7 @@ import com.prologandroid.projetocrudfuncionarios.model.Funcionario;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FuncionarioDAO {
@@ -24,6 +25,10 @@ public class FuncionarioDAO {
 
     public void removeFuncionario(int posicao) {
         funcionarios.remove(posicao);
+    }
+
+    public void troca(int posicaoInicio, int posicaoFim) {
+        Collections.swap(funcionarios, posicaoInicio, posicaoFim);
     }
 
 }

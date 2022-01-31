@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.prologandroid.projetocrudfuncionarios.R;
-import com.prologandroid.projetocrudfuncionarios.dao.dao.FuncionarioDAO;
 import com.prologandroid.projetocrudfuncionarios.model.Funcionario;
 
 public class FormularioFuncionarioActivity extends AppCompatActivity {

@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class Funcionario implements Serializable {
 
-    private int id;
     private String nome;
     private String dataNascimento;
     private String telefone;
@@ -31,9 +30,5 @@ public class Funcionario implements Serializable {
 
     public String getEmail() {
         return email;
-    }
-
-    public boolean temIdValido() {
-        return id > 0;
     }
 }

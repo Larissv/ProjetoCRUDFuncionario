@@ -1,6 +1,5 @@
 package com.prologandroid.projetocrudfuncionarios.recyclerview.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,37 +62,6 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
         notifyItemRemoved(posicao);
     }
 
-//
-//        public void remove(Funcionario posicao) {
-//        funcionarios.remove(posicao);
-//        notifyItemRemoved(posicao);
-//    }
-//
-//    private void notifyItemRemoved(Funcionario posicao) {
-//    }
-//
-//    public void confirmaRemocao(final MenuItem item) {
-//        new AlertDialog
-//                .Builder(context)
-//                .setTitle("Removendo funcionário")
-//                .setMessage("Deseja remover o funcionário permanentemente?")
-//                .setPositiveButton("Sim", (dialogInterface, i) -> {
-//                    AdapterView.AdapterContextMenuInfo menuInfo =
-//                            (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-//                    ListaFuncionarioAdapter adapter = null;
-//                    Funcionario funcionarioEscolhido = adapter.getItem(menuInfo.position);
-//                    remove(funcionarioEscolhido);
-//                })
-//                .setNegativeButton("Não", null)
-//                .show();
-//    }
-//
-//    private Funcionario getItem(int position) {
-//        return null;
-//    }
-//
-//    //
-
     class FuncionarioViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView nome;
@@ -129,3 +97,40 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
         }
     }
 }
+
+
+//    public static void remove(int posicao) {
+//        funcionarios.remove(posicao);
+//        notifyItemRemoved(posicao);
+//    }
+
+//
+//        public void remove(Funcionario posicao) {
+//        funcionarios.remove(posicao);
+//        notifyItemRemoved(posicao);
+//    }
+//
+//    private void notifyItemRemoved(Funcionario posicao) {
+//    }
+//
+//    public void confirmaRemocao(final MenuItem item) {
+//        new AlertDialog
+//                .Builder(context)
+//                .setTitle("Removendo funcionário")
+//                .setMessage("Deseja remover o funcionário permanentemente?")
+//                .setPositiveButton("Sim", (dialogInterface, i) -> {
+//                    AdapterView.AdapterContextMenuInfo menuInfo =
+//                            (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+//                    ListaFuncionarioAdapter adapter = null;
+//                    Funcionario funcionarioEscolhido = adapter.getItem(menuInfo.position);
+//                    remove(funcionarioEscolhido);
+//                })
+//                .setNegativeButton("Não", null)
+//                .show();
+//    }
+//
+//    private Funcionario getItem(int position) {
+//        return null;
+//    }
+//
+//    //
