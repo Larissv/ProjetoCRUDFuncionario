@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +22,10 @@ public class FormularioFuncionarioActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR_CADASTRA = "Cadastra funcionário";
     public static final String TITULO_APPBAR_EDITA = "Edita funcionário";
     private int posicaoRecebida = POSICAO_INVALIDA;
-    private TextView nome;
-    private TextView dataNascimento;
-    private TextView telefone;
-    private TextView email;
+    private EditText nome;
+    private EditText dataNascimento;
+    private EditText telefone;
+    private EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class FormularioFuncionarioActivity extends AppCompatActivity {
             setTitle(TITULO_APPBAR_EDITA);
             Funcionario funcionarioRecebido = (Funcionario) dadosRecebidos
                     .getSerializableExtra(CHAVE_FUNCIONARIO);
-            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_FUNCIONARIO, POSICAO_INVALIDA);
+            posicaoRecebida = dadosRecebidos.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
             preencheCampos(funcionarioRecebido);
         }
     }

@@ -27,8 +27,4 @@ public class FuncionarioDAO {
         funcionarios.remove(posicao);
     }
 
-    public void troca(int posicaoInicio, int posicaoFim) {
-        Collections.swap(funcionarios, posicaoInicio, posicaoFim);
-    }
-
 }

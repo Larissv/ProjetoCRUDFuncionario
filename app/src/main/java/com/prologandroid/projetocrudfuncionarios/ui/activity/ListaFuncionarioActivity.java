@@ -14,12 +14,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.prologandroid.projetocrudfuncionarios.R;
 import com.prologandroid.projetocrudfuncionarios.dao.dao.FuncionarioDAO;
 import com.prologandroid.projetocrudfuncionarios.model.Funcionario;
 import com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.ListaFuncionarioAdapter;
+import com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.helper.callback.FuncionarioItemTouchHelperCallback;
 import com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.listener.OnItemClickListener;
 
 import java.util.List;
@@ -41,37 +44,9 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         configuraBotaoAdicionaFuncionario();
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater()
-                .inflate(R.menu.menu_lista_funcionarios, menu);
-    }
-
-//    @Override
-//    public boolean onContextItemSelected(MenuItem item) {
-//
-//        int itemId = item.getItemId();
-//        if (itemId == R.id.menu_lista_funcionario_menu_remover) {
-//            listaFuncionarioAdapter.confirmaRemocao(item);
-//        }
-//
-//        return super.onContextItemSelected(item);
-//    }
-//
-//    private void configuraBotaoAdicionaFuncionario() {
-//        FloatingActionButton botaoCadastraFuncionario = findViewById(
-//                R.id.lista_funcionarios_cadastra_funcionario);
-//        botaoCadastraFuncionario.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                vaiParaFormularioFuncionarioActivityInsere();
-//            }
-//        });
-//    }
-
     private void configuraBotaoAdicionaFuncionario() {
-        TextView botaoAdicionaFuncionario = findViewById(R.id.lista_funcionarios_cadastra_funcionario);
+        FloatingActionButton botaoAdicionaFuncionario = findViewById(
+                R.id.lista_funcionarios_fab_cadastra_funcionario);
         botaoAdicionaFuncionario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,14 +74,16 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         if (validaResultadoAdicionaFuncionario(requestCode, data)) {
 
             if (resultadoOk(resultCode)) {
-                Funcionario funcionarioRecebido = (Funcionario) data.getSerializableExtra(CHAVE_FUNCIONARIO);
+                Funcionario funcionarioRecebido = (Funcionario) data.getSerializableExtra(
+                        CHAVE_FUNCIONARIO);
                 cadastra(funcionarioRecebido);
             }
         }
 
         if (validaResultadoAlteraFuncionario(requestCode, data)) {
             if (resultadoOk(resultCode)) {
-                Funcionario funcionarioRecebido = (Funcionario) data.getSerializableExtra(CHAVE_FUNCIONARIO);
+                Funcionario funcionarioRecebido = (Funcionario) data.getSerializableExtra(
+                        CHAVE_FUNCIONARIO);
                 int posicaoRecebida = data.getIntExtra(CHAVE_POSICAO, POSICAO_INVALIDA);
                 if (validaPosicao(posicaoRecebida)) {
                     edita(funcionarioRecebido, posicaoRecebida);
@@ -139,11 +116,6 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         listaFuncionarioAdapter.adiciona(funcionario);
     }
 
-//    public void remove(Funcionario funcionario) {
-//        listaFuncionarioAdapter.remove(funcionario);
-//        listaFuncionarioAdapter.notifyDataSetChanged();
-//    }
-
     private boolean validaResultadoAdicionaFuncionario(int requestCode, Intent data) {
         return validaCodigoRequisicaoCadastraFuncionario(requestCode) &&
                 temFuncionario(data);
@@ -164,6 +136,13 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
     private void configuraRecyclerView(List<Funcionario> todosFuncionarios) {
         RecyclerView listaFuncionarios = findViewById(R.id.lista_funcionarios_recyclerview);
         configuraAdapter(todosFuncionarios, listaFuncionarios);
+        configuraItemTouchHelper(listaFuncionarios);
+    }
+
+    private void configuraItemTouchHelper(RecyclerView listaFuncionarios) {
+        ItemTouchHelper itemTouchHelper =
+                new ItemTouchHelper(new FuncionarioItemTouchHelperCallback(listaFuncionarioAdapter));
+        itemTouchHelper.attachToRecyclerView(listaFuncionarios);
     }
 
     private void configuraAdapter(List<Funcionario> todosFuncionarios, RecyclerView listaFuncionarios) {

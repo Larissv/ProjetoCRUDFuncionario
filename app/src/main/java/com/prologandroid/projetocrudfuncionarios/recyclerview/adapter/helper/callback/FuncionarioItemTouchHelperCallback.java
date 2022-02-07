@@ -32,6 +32,7 @@ public class FuncionarioItemTouchHelperCallback extends ItemTouchHelper.Callback
         return false;
     }
 
+
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         int posicaoDoFuncionarioDeslizado = viewHolder.getAdapterPosition();

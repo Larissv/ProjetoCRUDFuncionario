@@ -12,6 +12,7 @@ import com.prologandroid.projetocrudfuncionarios.R;
 import com.prologandroid.projetocrudfuncionarios.model.Funcionario;
 import com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.listener.OnItemClickListener;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionarioAdapter.FuncionarioViewHolder> {
@@ -45,11 +46,6 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
     @Override
     public int getItemCount() {
         return funcionarios.size();
-    }
-
-    public void adiciona(Funcionario funcionario) {
-        funcionarios.add(funcionario);
-        notifyDataSetChanged();
     }
 
     public void edita(int posicao, Funcionario funcionario) {
@@ -96,41 +92,9 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
             email.setText(funcionario.getEmail());
         }
     }
+
+    public void adiciona(Funcionario funcionario) {
+        funcionarios.add(funcionario);
+        notifyDataSetChanged();
+    }
 }
-
-
-//    public static void remove(int posicao) {
-//        funcionarios.remove(posicao);
-//        notifyItemRemoved(posicao);
-//    }
-
-//
-//        public void remove(Funcionario posicao) {
-//        funcionarios.remove(posicao);
-//        notifyItemRemoved(posicao);
-//    }
-//
-//    private void notifyItemRemoved(Funcionario posicao) {
-//    }
-//
-//    public void confirmaRemocao(final MenuItem item) {
-//        new AlertDialog
-//                .Builder(context)
-//                .setTitle("Removendo funcionário")
-//                .setMessage("Deseja remover o funcionário permanentemente?")
-//                .setPositiveButton("Sim", (dialogInterface, i) -> {
-//                    AdapterView.AdapterContextMenuInfo menuInfo =
-//                            (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-//                    ListaFuncionarioAdapter adapter = null;
-//                    Funcionario funcionarioEscolhido = adapter.getItem(menuInfo.position);
-//                    remove(funcionarioEscolhido);
-//                })
-//                .setNegativeButton("Não", null)
-//                .show();
-//    }
-//
-//    private Funcionario getItem(int position) {
-//        return null;
-//    }
-//
-//    //

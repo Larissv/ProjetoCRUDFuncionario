@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CRUD Funcionários</string>
+    <string name="todo">TODO</string>
 </resources>
