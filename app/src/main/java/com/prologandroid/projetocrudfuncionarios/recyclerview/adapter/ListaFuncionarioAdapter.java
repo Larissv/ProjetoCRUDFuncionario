@@ -12,7 +12,6 @@ import com.prologandroid.projetocrudfuncionarios.R;
 import com.prologandroid.projetocrudfuncionarios.model.Funcionario;
 import com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.listener.OnItemClickListener;
 
-import java.util.Collections;
 import java.util.List;
 
 public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionarioAdapter.FuncionarioViewHolder> {
@@ -57,6 +56,8 @@ public class ListaFuncionarioAdapter extends RecyclerView.Adapter<ListaFuncionar
         funcionarios.remove(posicao);
         notifyItemRemoved(posicao);
     }
+
+
 
     class FuncionarioViewHolder extends RecyclerView.ViewHolder {
 

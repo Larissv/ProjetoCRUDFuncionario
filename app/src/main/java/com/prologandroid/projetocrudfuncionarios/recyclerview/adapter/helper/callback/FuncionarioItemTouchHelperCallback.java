@@ -1,6 +1,5 @@
 package com.prologandroid.projetocrudfuncionarios.recyclerview.adapter.helper.callback;
 
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +41,7 @@ public class FuncionarioItemTouchHelperCallback extends ItemTouchHelper.Callback
     private void removeFuncionario(int posicao) {
         new FuncionarioDAO().removeFuncionario(posicao);
         adapter.remove(posicao);
-    } }
+    }
+}
 
 
