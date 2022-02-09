@@ -41,5 +41,17 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_funcionario" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/lista_fab_busca_funcionario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toBottomOf="@+id/lista_funcionarios_fab_cadastra_funcionario"
+        app:layout_constraintTop_toTopOf="@+id/lista_funcionarios_fab_cadastra_funcionario"
+        app:srcCompat="@drawable/ic_busca_funcionario_foreground"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="243dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

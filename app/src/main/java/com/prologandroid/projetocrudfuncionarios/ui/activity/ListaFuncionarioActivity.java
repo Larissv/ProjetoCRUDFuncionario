@@ -2,6 +2,7 @@ package com.prologandroid.projetocrudfuncionarios.ui.activity;
 
 import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.CHAVE_FUNCIONARIO;
 import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.CHAVE_POSICAO;
+import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.CODIGO_REQUISICAO_BUSCA_FUNCIONARIO;
 import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.CODIGO_REQUISICAO_CADASTRA_FUNCIONARIO;
 import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.CODIGO_REQUISICAO_EDITA_FUNCIONARIO;
 import static com.prologandroid.projetocrudfuncionarios.ui.activity.FuncionarioActivityConstantes.POSICAO_INVALIDA;
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +44,26 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         List<Funcionario> todosFuncionarios = pegaTodosFuncionarios();
         configuraRecyclerView(todosFuncionarios);
         configuraBotaoAdicionaFuncionario();
+        configuraBotaoBuscaFuncionario();
+    }
+
+    private void configuraBotaoBuscaFuncionario() {
+        Button botaoBuscaFuncionario = findViewById(
+                R.id.lista_fab_busca_funcionario);
+        botaoBuscaFuncionario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vaiParaBuscaFuncionarioActivityInsere();
+            }
+        });
+    }
+
+    private void vaiParaBuscaFuncionarioActivityInsere() {
+        Intent iniciaBuscaFuncionario =
+                new Intent(ListaFuncionarioActivity.this,
+                        BuscaFuncionarioActivity.class);
+        startActivityForResult(iniciaBuscaFuncionario,
+                CODIGO_REQUISICAO_BUSCA_FUNCIONARIO);
     }
 
     private void configuraBotaoAdicionaFuncionario() {
