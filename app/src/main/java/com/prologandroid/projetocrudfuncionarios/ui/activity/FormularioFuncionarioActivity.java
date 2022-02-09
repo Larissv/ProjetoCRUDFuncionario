@@ -78,7 +78,7 @@ public class FormularioFuncionarioActivity extends AppCompatActivity {
     private void retornaFuncionario(Funcionario funcionario) {
         Intent resultadoInsercao = new Intent();
         resultadoInsercao.putExtra(CHAVE_FUNCIONARIO, funcionario);
-        resultadoInsercao.putExtra(CHAVE_POSICAO, posicaoRecebida);
+            resultadoInsercao.putExtra(CHAVE_POSICAO, posicaoRecebida);
         setResult(Activity.RESULT_OK,resultadoInsercao);
     }
 

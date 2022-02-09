@@ -44,26 +44,6 @@ public class ListaFuncionarioActivity extends AppCompatActivity {
         List<Funcionario> todosFuncionarios = pegaTodosFuncionarios();
         configuraRecyclerView(todosFuncionarios);
         configuraBotaoAdicionaFuncionario();
-        configuraBotaoBuscaFuncionario();
-    }
-
-    private void configuraBotaoBuscaFuncionario() {
-        Button botaoBuscaFuncionario = findViewById(
-                R.id.lista_fab_busca_funcionario);
-        botaoBuscaFuncionario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                vaiParaBuscaFuncionarioActivityInsere();
-            }
-        });
-    }
-
-    private void vaiParaBuscaFuncionarioActivityInsere() {
-        Intent iniciaBuscaFuncionario =
-                new Intent(ListaFuncionarioActivity.this,
-                        BuscaFuncionarioActivity.class);
-        startActivityForResult(iniciaBuscaFuncionario,
-                CODIGO_REQUISICAO_BUSCA_FUNCIONARIO);
     }
 
     private void configuraBotaoAdicionaFuncionario() {
